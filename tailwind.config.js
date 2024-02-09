@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         'darkmode': '#292929',
         'white': '#fff',
+        'darkcompliment' : '#191a1c'
       },
     },    
   },
