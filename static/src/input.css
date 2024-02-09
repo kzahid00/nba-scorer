@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    body {
+        @apply font-sans;
+        @apply p-5;
+        @apply bg-darkmode;
+        @apply text-white;
+    }
+}

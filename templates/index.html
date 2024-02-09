@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block head %}
+	<script src="https://kit.fontawesome.com/1a25e9523c.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+	<div table class="bg-black p-12 w-3/5 m-auto rounded-md">
+		<div season-select class="flex justify-between">
+			<p class="text-xl">NBA Season Standings</p>
+			<div select class="">
+				<label for="">Season</label>
+				<select class="text-black p-1 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 name="" id="">
+					<option value="2023-24">2023-24</option>
+				</select>
+			</div>
+		</div>
+		<hr class="h-px my-4 bg-gray-200 border-0">
+		<div class="grid grid-cols-7 justify-items-center text-xs font-bold">
+			<div class="border border-green-400">TEAM</div>
+			<div>W</div>
+			<div>L</div>
+			<div>WIN%</div>
+			<div>GB</div>
+			<div>LAST 10</div>
+			<div>STREAK</div>
+		</div>
+		<hr class="h-px my-4 bg-gray-200 border-0">
+		<div standings class="flex flex-col">
+			{% for team in teams %}
+			<div indiv-teams class="grid grid-cols-7 justify-items-center">				
+				<p class="text-justify">{{ team['name'] }}</p>
+				<p>{{ team['win'] }}</p>
+				<p>{{ team['loss'] }}</p>
+				<p>{{ team['percentage'] }}</p>
+				<p>{{ team['gb'] }}</p>
+				<p>{{ team['last10'] }}</p>
+				<p>{{ team['strk'] }}</p>
+			</div>
+			<hr class="h-px my-4 bg-gray-200 border-0">
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
