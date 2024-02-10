@@ -17,6 +17,36 @@
 			</div>
 		</div>
 	</div>
+	<h1 class="text-2xl">Eastern Conference</h1>
+	<div table class="bg-darkcompliment pb-4 m-auto rounded-md text-gray-300 mb-2">		
+		<div class="grid grid-cols-7 text-xs font-bold border border-gray-600 bg-gray-600 pt-2 pb-2 mb-2 rounded-t-md justify-items-center">
+			<div class="">TEAM</div>
+			<div>W</div>
+			<div>L</div>
+			<div>WIN%</div>
+			<div>GB</div>
+			<div>LAST 10</div>
+			<div>STREAK</div>			
+		</div>
+		<div standings class="flex flex-col">
+			{% for team in teams %}
+			<div indiv-teams class="grid grid-cols-7 justify-items-center pb-1.5 pt-1.5 hover:bg-gray-800 justify-center transition hover:delay-75ms ease-in-out">	
+				<p class="flex"><span class="text-gray-400 mr-1">
+					{{team['rank']}}</span> 
+					<!-- <img width="20px" height="10px" src="{{ team['logo'] }}" alt="team logo">  -->
+					<a class="hover:text-blue-400 transition hover:delay-75ms ease-in-out" href="">{{ team['name'] }}</a>
+				</p>
+				<p>{{ team['win'] }}</p>
+				<p>{{ team['loss'] }}</p>
+				<p>{{ team['percentage'] }}</p>
+				<p>{{ team['gb'] }}</p>
+				<p>{{ team['last10'] }}</p>
+				<p>{{ team['worlstreak'] }}{{ team['strk'] }}</p>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	<h1 class="text-xl">Western Conference</h1>
 	<div table class="bg-darkcompliment pb-4 m-auto rounded-md text-gray-300">		
 		<div class="grid grid-cols-7 text-xs font-bold border border-gray-600 bg-gray-600 pt-2 pb-2 mb-2 rounded-t-md justify-items-center">
 			<div class="">TEAM</div>
@@ -28,17 +58,22 @@
 			<div>STREAK</div>
 		</div>
 		<div standings class="flex flex-col">
-			{% for team in teams %}
+			{% for team in wteams %}
 			<div indiv-teams class="grid grid-cols-7 justify-items-center pb-1 pt-1 hover:bg-gray-800 justify-center transition hover:delay-75ms ease-in-out">	
-				<p class=""><span class="text-gray-400">{{team['rank']}}</span> <a class="hover:text-blue-400 transition hover:delay-75ms ease-in-out" href="">{{ team['name'] }}</a></p>
+				<p class="flex">
+					<span class="text-gray-400 mr-1">{{team['rank']}}</span> 
+					<!-- <img width="24px" src="{{ team['logo'] }}" alt="team logo">  -->
+					<a class="hover:text-blue-400 transition hover:delay-75ms ease-in-out" href="">{{ team['name'] }}</a>
+				</p>
 				<p>{{ team['win'] }}</p>
 				<p>{{ team['loss'] }}</p>
 				<p>{{ team['percentage'] }}</p>
 				<p>{{ team['gb'] }}</p>
 				<p>{{ team['last10'] }}</p>
-				<p>{{ team['strk'] }}</p>
+				<p>{{ team['worlstreak'] }}{{ team['strk'] }}</p>
 			</div>
 			{% endfor %}
 		</div>
 	</div>
+
 {% endblock %}
